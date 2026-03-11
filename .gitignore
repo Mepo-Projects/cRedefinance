@@ -1,0 +1,55 @@
+# ── Dependencies ──────────────────────────────────────────────────────────────
+node_modules/
+
+# ── Build output ──────────────────────────────────────────────────────────────
+dist/
+dist-ssr/
+.vite/
+
+# ── Environment variables ─────────────────────────────────────────────────────
+# Keep .env.example (it's a safe template) — ignore everything else
+.env
+.env.*
+!.env.example
+
+# Local overrides (Vite)
+*.local
+
+# ── TypeScript ────────────────────────────────────────────────────────────────
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+
+# ── Logs ──────────────────────────────────────────────────────────────────────
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ── OS files ──────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ── Editor / IDE ──────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.suo
+*.sw?
+*.swp
+
+# ── Test / coverage ───────────────────────────────────────────────────────────
+coverage/
+.nyc_output/
+
+# ── Internal / AI working files ───────────────────────────────────────────────
+# AI prompt guidelines used during development — not part of the codebase
+guidelines/
+
+# Figma Make auto-generated attribution file — not useful in the repo
+ATTRIBUTIONS.md
+
+# Internal research documents — not part of the deployable product
+Credit Process - Source of Truth (EN).docx
+Кредитен процес_*.pdf
