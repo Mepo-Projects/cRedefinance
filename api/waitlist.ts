@@ -1,3 +1,4 @@
+/// <reference types="node" />
 import nodemailer from 'nodemailer';
 import {
   WAITLIST_NOTIFICATION_SUBJECT,
