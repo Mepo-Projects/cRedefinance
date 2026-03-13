@@ -8,39 +8,39 @@ import {
 
 const faqs = [
   {
-    question: 'Is the product live now?',
+    question: 'What does Redefinance actually do?',
     answer:
-      "No. Redefinance is in pre-launch. Founding firms work directly with our team during development, receiving hands-on support and early access as features go live. You're joining to help shape the product and secure founding terms.",
+      'Redefinance is a credit file preparation platform for accounting and credit advisory firms. It structures the entire workflow from client document intake to a completed credit analysis draft: guiding document collection, running financial analysis automatically, and compiling everything into a reviewable file. Your firm reviews and signs off on the output. Redefinance handles the preparation work.',
   },
   {
-    question: 'What happens after I apply?',
+    question: 'What documents does it process?',
     answer:
-      "We review your application and reach out within a few days to schedule a call. On that call we learn about your firm, how you currently handle SME credit files, and what you are trying to solve. If it is a good fit for both sides, we confirm your spot and you pay the €99 founding fee. Then we get to work.",
+      'Redefinance processes the full set of documents required in a standard SME credit analysis: the annual financial statement, balance sheet, income statement, gross balance (trial balance), closing statement (final ledger), analytical ledger cards, audit reports, business plan, cash flow statement, and projected cash flow. The intake is guided, your client is walked through exactly what to provide for each category, and you can see at a glance what has arrived, what is pending, and what is still missing.',
   },
   {
-    question: "What if the product doesn't fit my needs?",
+    question: 'What does the analysis output include?',
     answer:
-      "We don't offer a standard money-back guarantee. If we fail to launch, you get a full refund. If you join and the direction doesn't fit your firm, we'll have a direct conversation about it. The €99 is a commitment to building this together, and we take that seriously on our side too.",
+      'The credit analysis draft includes the full set of indicators your firm is expected to produce: Net Working Capital, Current Ratio, Debt to Assets, EBITDA, ROA, ROE, and cash flow coverage metrics. Every figure is linked to the source document and the period it was calculated from. Nothing unexplained, nothing you cannot verify.',
   },
   {
-    question: 'How is this different from joining the waitlist?',
+    question: 'Can I verify every number in the output?',
     answer:
-      'Waitlist members receive updates and access when we publicly launch at standard pricing. Founding firms get direct founder access, influence over what gets built, 80% off our public launch price locked for life, and first access as features launch.',
+      'Yes, and that is a core design principle. Every figure in a Redefinance draft traces back to the document it came from. You see the source statement, the period it covers, and the formula applied. Redefinance is a research starting point, not a final deliverable. The professional judgment and accountability for the file stays entirely with you.',
   },
   {
-    question: 'Why pay €99 before the product exists?',
+    question: 'What types of SME financing cases does it cover?',
     answer:
-      'You are not paying for a finished product. You are securing a seat in a cohort of 5 accounting and credit advisory firms who will shape what gets built. If your firm handles SME credit files regularly, you already know the cost of doing this manually — in time, in inconsistency, in capacity. Founding members get 80% off our public launch price locked for life, direct influence over the roadmap, and a working relationship with the founders throughout the build. The €99 also signals that you are serious about solving this. And if we do not launch, you get a full refund.',
+      'The initial focus is on standard bank credit applications for SMEs: working capital loans, investment financing, and similar cases that require a full credit file with financial analysis. We are building the scope together with founding clients, so coverage will reflect real cases from each founding client we work with.',
   },
   {
-    question: 'How many founding firms are you accepting?',
+    question: 'What stage is the product at right now?',
     answer:
-      "We're limiting this cohort to 5 founding firms. That's intentional. We need to give each firm real attention during the discovery phase, and we can't do that with a large group. Once all 5 spots are filled, the offer closes.",
+      'Redefinance is in pre-development. We are currently onboarding 5 founding clients, each one worked with individually, not as a group. Your workflow, your cases, and your feedback directly shape what gets built. There is no live product yet. Each founding client gets direct access to the founders during the build and first access to every feature as it goes live.',
   },
   {
-    question: 'What problem does Redefinance solve?',
+    question: 'What if Redefinance does not launch?',
     answer:
-      'Accounting firms and credit advisors spend significant time on each SME client that needs bank financing: collecting documents across multiple categories, running financial analysis, calculating ratios, reviewing cash flow, and formatting everything to the bank\'s requirements. They do this repeatedly, for every client, with no standardised tool. We are building one — designed specifically for the firms doing this work, not the banks receiving it.',
+      'If we do not launch, you get a full refund of your €99 founding fee. No questions asked. The fee is a commitment signal on both sides. It is not a purchase of a finished product.',
   },
 ];
 
@@ -59,7 +59,7 @@ export function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="text-lg text-gray-600">
-            Everything you need to know about becoming a founding firm
+            How the product works, what it produces, and where it stands
           </p>
         </motion.div>
 

@@ -1,27 +1,42 @@
 import { motion } from 'motion/react';
-import { FileText, UserCheck, Star } from 'lucide-react';
+import { ClipboardList, BarChart2, FileText } from 'lucide-react';
 
 const steps = [
   {
+    icon: ClipboardList,
+    label: 'Guided Document Intake',
+    subtitle: (
+      <>
+        We guide your client through providing everything needed: <strong>income statement</strong>, <strong>balance sheet</strong>, <strong>cash flow statement</strong>, <strong>audit reports</strong>, and everything else. Tracked in one place so you always know what has arrived and what is still missing.
+      </>
+    ),
+    foundingNote: 'Founding clients define which documents the intake requests.',
+  },
+  {
+    icon: BarChart2,
+    label: 'We Process It For You',
+    subtitle: (
+      <>
+        We run the numbers on everything collected and surface what matters: <strong>Net Working Capital</strong>, <strong>Current Ratio</strong>, <strong>EBITDA</strong>, <strong>ROA</strong>, <strong>ROE</strong>, and the full set of indicators your analysis requires. No rebuilt formulas. No manual inputs.
+      </>
+    ),
+    foundingNote: 'Founding clients shape which indicators get calculated.',
+  },
+  {
     icon: FileText,
-    label: 'Map Your Workflow',
-    subtitle: 'A few working sessions where you walk us through how your firm handles client credit files — what documents you collect, what analysis you run, what you submit to banks.',
-  },
-  {
-    icon: UserCheck,
-    label: 'Shape What Gets Built',
-    subtitle: 'Everything you show us goes directly into what we build. Your workflow becomes the product spec.',
-  },
-  {
-    icon: Star,
-    label: 'First Access. Founding Rate. Forever.',
-    subtitle: 'As features go live, you are first to use them. At €99 — 80% off our public launch price, locked for life.',
+    label: 'Your Draft. Ready to be reviewed.',
+    subtitle: (
+      <>
+        You receive a complete <strong>credit analysis draft</strong>: every figure linked to its source document, every ratio traceable to the period and statement it was calculated from. Review it, adjust it, and submit with confidence.
+      </>
+    ),
+    foundingNote: 'Founding clients influence the output structure and format.',
   },
 ];
 
 export function CredibilityStrip() {
   return (
-    <section className="pt-8 pb-20 px-4 sm:px-6 lg:px-8">
+    <section id="how-it-works" className="pt-8 pb-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -30,7 +45,7 @@ export function CredibilityStrip() {
           transition={{ duration: 0.6 }}
           className="text-2xl sm:text-3xl mb-12 text-gray-900 text-center"
         >
-          How We Work Together
+          How Redefinance Works
         </motion.h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -66,7 +81,10 @@ export function CredibilityStrip() {
                 </div>
 
                 <h3 className="text-base font-medium mb-2 text-gray-900 text-center">{step.label}</h3>
-                <p className="text-sm text-gray-600 leading-snug text-center">{step.subtitle}</p>
+                <p className="text-sm text-gray-600 leading-snug text-center mb-4">{step.subtitle}</p>
+                <div className="border-t border-blue-100 pt-3 mt-auto">
+                  <p className="text-xs text-blue-600 text-center font-medium">✦ {step.foundingNote}</p>
+                </div>
               </div>
             </motion.div>
           ))}

@@ -3,6 +3,7 @@ import { StickyConversionBar } from './components/StickyConversionBar';
 import { MobileStickyButton } from './components/MobileStickyButton';
 import { Hero } from './components/Hero';
 import { CredibilityStrip } from './components/CredibilityStrip';
+import { DataIntegrity } from './components/DataIntegrity';
 import { FoundingOffer } from './components/FoundingOffer';
 import { FAQ } from './components/FAQ';
 import { Waitlist } from './components/Waitlist';
@@ -16,6 +17,7 @@ export default function App() {
       <MobileStickyButton />
       <Hero />
       <CredibilityStrip />
+      <DataIntegrity />
       <FAQ />
       <FoundingOffer />
       <Waitlist />

@@ -81,7 +81,7 @@ export function FoundingOffer() {
             </div>
             <h3 className="text-2xl mb-4 text-gray-900">Application Received</h3>
             <p className="text-gray-600 mb-6">
-              Thank you for your interest in becoming a founding firm. We will review your application
+              Thank you for your interest in becoming a founding client. We will review your application
               and reach out within a few days to schedule a call and discuss next steps.
             </p>
             <p className="text-sm text-gray-500">
@@ -104,7 +104,7 @@ export function FoundingOffer() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl sm:text-4xl mb-4 text-gray-900">
-            Join the Founding Cohort
+            Become a Founding Client
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             We are looking for 5 accounting or credit advisory firms who prep SME loan files regularly and want a tool built around how they actually work.
@@ -127,8 +127,8 @@ export function FoundingOffer() {
               >
                 Limited to 5 firms
               </motion.div>
-              <h3 className="text-2xl mb-2 text-gray-900">What Founding Firms Get</h3>
-              <p className="text-gray-600">As a founding cohort member, you receive:</p>
+              <h3 className="text-2xl mb-2 text-gray-900">What Founding Clients Get</h3>
+              <p className="text-gray-600">As a founding client, you receive:</p>
             </div>
 
             <ul className="space-y-4 mb-8">
@@ -301,7 +301,7 @@ export function FoundingOffer() {
                         Submitting...
                       </>
                     ) : (
-                      'Apply for a Founding Firm Spot →'
+                      'Apply for a Founding Client Spot →'
                     )}
                   </span>
                 </Button>

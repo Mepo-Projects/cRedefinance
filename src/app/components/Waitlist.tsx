@@ -114,7 +114,7 @@ export function Waitlist() {
                   Join the Waitlist
                 </h2>
                 <p className="text-gray-600">
-                  We will let you know when Redefinance launches publicly — purpose-built for accounting and credit advisory firms.
+                  We will let you know when Redefinance launches publicly. Purpose-built for accounting and credit advisory firms.
                 </p>
               </div>
 
@@ -129,115 +129,119 @@ export function Waitlist() {
                     {...form.register('website')}
                   />
 
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    rules={{
-                      required: 'Enter your full name.',
-                      minLength: {
-                        value: 2,
-                        message: 'Your name must be at least 2 characters.',
-                      },
-                      validate: (value) =>
-                        isValidFullName(value) || 'Enter your first and last name.',
-                    }}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Your Name</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            autoComplete="name"
-                            placeholder="Jane Smith"
-                            className="mt-1.5 focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      rules={{
+                        required: 'Enter your full name.',
+                        minLength: {
+                          value: 2,
+                          message: 'Your name must be at least 2 characters.',
+                        },
+                        validate: (value) =>
+                          isValidFullName(value) || 'Enter your first and last name.',
+                      }}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Your Name</FormLabel>
+                          <FormControl>
+                            <Input
+                              {...field}
+                              autoComplete="name"
+                              placeholder="Jane Smith"
+                              className="mt-1.5 focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                  <FormField
-                    control={form.control}
-                    name="companyName"
-                    rules={{
-                      required: 'Enter your company name.',
-                      minLength: {
-                        value: 2,
-                        message: 'Company name must be at least 2 characters.',
-                      },
-                      validate: (value) =>
-                        isValidCompanyName(value) || 'Enter a valid company name.',
-                    }}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Company Name</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            autoComplete="organization"
-                            placeholder="Acme Advisory"
-                            className="mt-1.5 focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                    <FormField
+                      control={form.control}
+                      name="companyName"
+                      rules={{
+                        required: 'Enter your company name.',
+                        minLength: {
+                          value: 2,
+                          message: 'Company name must be at least 2 characters.',
+                        },
+                        validate: (value) =>
+                          isValidCompanyName(value) || 'Enter a valid company name.',
+                      }}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Company Name</FormLabel>
+                          <FormControl>
+                            <Input
+                              {...field}
+                              autoComplete="organization"
+                              placeholder="Acme Advisory"
+                              className="mt-1.5 focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
 
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    rules={{
-                      required: 'Enter your work email.',
-                      pattern: {
-                        value: emailPattern,
-                        message: 'Enter a valid email address.',
-                      },
-                    }}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Email Address</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            type="email"
-                            autoComplete="email"
-                            inputMode="email"
-                            placeholder="you@company.com"
-                            className="mt-1.5 focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <FormField
+                      control={form.control}
+                      name="email"
+                      rules={{
+                        required: 'Enter your work email.',
+                        pattern: {
+                          value: emailPattern,
+                          message: 'Enter a valid email address.',
+                        },
+                      }}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>Email Address</FormLabel>
+                          <FormControl>
+                            <Input
+                              {...field}
+                              type="email"
+                              autoComplete="email"
+                              inputMode="email"
+                              placeholder="you@company.com"
+                              className="mt-1.5 focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
 
-                  <FormField
-                    control={form.control}
-                    name="linkedin"
-                    rules={{
-                      required: 'Enter your LinkedIn URL.',
-                      validate: (value) =>
-                        isValidLinkedInUrl(value.trim()) ||
-                        'Enter a valid LinkedIn profile or company URL.',
-                    }}
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>LinkedIn</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            autoComplete="url"
-                            inputMode="url"
-                            placeholder="linkedin.com/in/jane-smith"
-                            className="mt-1.5 focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
+                    <FormField
+                      control={form.control}
+                      name="linkedin"
+                      rules={{
+                        required: 'Enter your LinkedIn URL.',
+                        validate: (value) =>
+                          isValidLinkedInUrl(value.trim()) ||
+                          'Enter a valid LinkedIn profile or company URL.',
+                      }}
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel>LinkedIn</FormLabel>
+                          <FormControl>
+                            <Input
+                              {...field}
+                              autoComplete="url"
+                              inputMode="url"
+                              placeholder="linkedin.com/in/jane-smith"
+                              className="mt-1.5 focus:ring-2 focus:ring-gray-500 focus:border-gray-500 transition-all duration-200"
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                  </div>
 
                   {submitError ? (
                     <p
