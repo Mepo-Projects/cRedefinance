@@ -4,7 +4,6 @@ import { Check, Loader2, CheckCircle2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
-import { Textarea } from './ui/textarea';
 
 export function FoundingOffer() {
   const [formData, setFormData] = useState({
@@ -12,8 +11,7 @@ export function FoundingOffer() {
     email: '',
     role: '',
     company: '',
-    painPoint: '',
-    motivation: '',
+    linkedin: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -22,21 +20,44 @@ export function FoundingOffer() {
     email: false,
     role: false,
     company: false,
+    linkedin: false,
   });
+
+  const [submitError, setSubmitError] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setSubmitError('');
     setIsSubmitting(true);
-    
-    // Mock submission
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+
+    try {
+      const response = await fetch('/api/founding-offer', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json().catch(() => null);
+
+      if (!response.ok) {
+        throw new Error(data?.message || 'We could not submit your application right now.');
+      }
+
+      setIsSubmitted(true);
+      window.open('https://calendar.app.google/YqPuB56T52ZqRgL68', '_blank');
+    } catch (error) {
+      setSubmitError(
+        error instanceof Error
+          ? error.message
+          : 'We could not submit your application right now.',
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement>
   ) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -44,7 +65,6 @@ export function FoundingOffer() {
       [name]: value,
     }));
 
-    // Validate field
     if (name === 'email') {
       setValidFields(prev => ({
         ...prev,
@@ -60,11 +80,11 @@ export function FoundingOffer() {
 
   const benefits = [
     'Direct access to founders. No chatbots, no ticket queues.',
-    '80% off our public launch price (€99 now, locked for life)',
+    '80% off our public launch price (€199 now, locked for life)',
     'Your workflow shapes the product. We build what you actually need.',
     'First access to every feature as it goes live',
     'Structured onboarding call to map your current process',
-    'Full refund if we don\'t launch. Your €99 is never at risk.',
+    'Full refund if we don\'t launch. Your €199 is never at risk.',
   ];
 
   if (isSubmitted) {
@@ -80,12 +100,22 @@ export function FoundingOffer() {
               <Check className="h-8 w-8 text-green-600" />
             </div>
             <h3 className="text-2xl mb-4 text-gray-900">Application Received</h3>
-            <p className="text-gray-600 mb-6">
-              Thank you for your interest in becoming a founding client. We will review your application
-              and reach out within a few days to schedule a call and discuss next steps.
+            <p className="text-gray-600 mb-4">
+              Thank you for your interest in becoming a founding client. We will review your application and reach out within a few days.
             </p>
-            <p className="text-sm text-gray-500">
-              Check your email ({formData.email}) for confirmation.
+            <p className="text-gray-600 mb-6">
+              In the meantime, feel free to book a call directly if you'd like to speak sooner.
+            </p>
+            <a
+              href="https://calendar.app.google/YqPuB56T52ZqRgL68"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200 mb-4"
+            >
+              Book a Call
+            </a>
+            <p className="text-sm text-gray-400">
+              We'll also follow up at {formData.email}
             </p>
           </motion.div>
         </div>
@@ -121,7 +151,7 @@ export function FoundingOffer() {
             className="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200/50 rounded-2xl p-8 backdrop-blur-sm"
           >
             <div className="mb-6">
-              <motion.div 
+              <motion.div
                 className="inline-block px-3 py-1 bg-blue-600 text-white text-sm rounded-full mb-4"
                 whileHover={{ scale: 1.05 }}
               >
@@ -133,8 +163,8 @@ export function FoundingOffer() {
 
             <ul className="space-y-4 mb-8">
               {benefits.map((benefit, index) => (
-                <motion.li 
-                  key={index} 
+                <motion.li
+                  key={index}
                   className="flex items-start gap-3"
                   initial={{ opacity: 0, x: -10 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -152,11 +182,11 @@ export function FoundingOffer() {
 
             <div className="pt-6 border-t border-blue-200">
               <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-3xl text-gray-900">€99</span>
+                <span className="text-3xl text-gray-900">€199</span>
                 <span className="text-gray-600">now · 80% off at launch</span>
               </div>
               <p className="text-sm text-gray-600">
-                No payment now. We review your application, schedule a call, and if we are both a fit, you confirm your spot with €99. Your 80% founding discount stays yours forever.
+                No payment now. We review your application, schedule a call, and if we are both a fit, you confirm your spot with €199. Your 80% founding discount stays yours forever.
               </p>
             </div>
           </motion.div>
@@ -258,33 +288,35 @@ export function FoundingOffer() {
                 </div>
               </div>
 
-              {/* Pain point */}
-              <div>
-                <Label htmlFor="painPoint">What slows your firm down most when preparing a client's credit file for the bank? *</Label>
-                <Textarea
-                  id="painPoint"
-                  name="painPoint"
-                  required
-                  value={formData.painPoint}
-                  onChange={handleInputChange}
-                  placeholder="e.g. collecting documents from clients, recalculating ratios for each case, formatting for different banks..."
-                  className="mt-1.5 min-h-24 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
-                />
+              {/* LinkedIn */}
+              <div className="relative">
+                <Label htmlFor="linkedin">LinkedIn *</Label>
+                <div className="relative mt-1.5">
+                  <Input
+                    id="linkedin"
+                    name="linkedin"
+                    required
+                    value={formData.linkedin}
+                    onChange={handleInputChange}
+                    placeholder="linkedin.com/in/your-name"
+                    className="pr-10 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
+                  />
+                  {validFields.linkedin && (
+                    <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 500, damping: 15 }}>
+                      <CheckCircle2 className="absolute right-3 top-1/2 -translate-y-1/2 h-4 w-4 text-green-600" />
+                    </motion.div>
+                  )}
+                </div>
               </div>
 
-              {/* Motivation */}
-              <div>
-                <Label htmlFor="motivation">How many SME credit files does your firm handle in a typical month? *</Label>
-                <Textarea
-                  id="motivation"
-                  name="motivation"
-                  required
-                  value={formData.motivation}
-                  onChange={handleInputChange}
-                  placeholder="Give us a rough sense of volume and what types of financing you typically help clients with..."
-                  className="mt-1.5 min-h-24 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200"
-                />
-              </div>
+              {submitError ? (
+                <p
+                  role="alert"
+                  className="rounded-md border border-red-200 bg-red-50 px-3 py-2 text-sm text-red-700"
+                >
+                  {submitError}
+                </p>
+              ) : null}
 
               <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                 <Button
@@ -292,7 +324,6 @@ export function FoundingOffer() {
                   disabled={isSubmitting}
                   className="w-full bg-blue-600 hover:bg-blue-700 text-white py-6 relative overflow-hidden group"
                 >
-                  {/* Shine effect */}
                   <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
                   <span className="relative">
                     {isSubmitting ? (

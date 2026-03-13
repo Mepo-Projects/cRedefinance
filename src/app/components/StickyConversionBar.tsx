@@ -58,8 +58,8 @@ export function StickyConversionBar() {
                     onClick={() => scrollToSection('founding-offer')}
                     className="bg-blue-600 hover:bg-blue-700 text-white group"
                   >
-                    <span className="hidden sm:inline">Apply for Founding Access (€99)</span>
-                    <span className="sm:hidden">Apply (€99)</span>
+                    <span className="hidden sm:inline">Apply for Founding Access</span>
+                    <span className="sm:hidden">Apply</span>
                     <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </motion.div>

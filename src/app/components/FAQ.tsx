@@ -40,7 +40,7 @@ const faqs = [
   {
     question: 'What if Redefinance does not launch?',
     answer:
-      'If we do not launch, you get a full refund of your €99 founding fee. No questions asked. The fee is a commitment signal on both sides. It is not a purchase of a finished product.',
+      'If we do not launch, you get a full refund of your €199 founding fee. No questions asked. The fee is a commitment signal on both sides. It is not a purchase of a finished product.',
   },
 ];
 

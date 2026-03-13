@@ -42,7 +42,7 @@ export function MobileStickyButton() {
             onClick={() => scrollToSection('founding-offer')}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white text-base py-6 group shadow-lg"
           >
-            Apply for Founding Access (€99)
+            Apply for Founding Access
             <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Button>
           <p className="text-xs text-center text-gray-600 mt-2">5 founding spots · 80% off launch price</p>

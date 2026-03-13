@@ -37,8 +37,8 @@ export function Footer() {
             <h4 className="text-white text-sm mb-3">Contact</h4>
             <ul className="space-y-2 text-sm">
               <li>
-                <a href="mailto:hello@redefinance.com" className="hover:text-white transition-colors">
-                  hello@redefinance.com
+                <a href="mailto:support@tryredefinance.com" className="hover:text-white transition-colors">
+                  support@tryredefinance.com
                 </a>
               </li>
               <li className="text-sm">
