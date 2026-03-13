@@ -2,7 +2,7 @@ import nodemailer from 'nodemailer';
 import {
   WAITLIST_NOTIFICATION_SUBJECT,
   validateWaitlistPayload,
-} from '../src/lib/waitlist';
+} from '../src/lib/waitlist.js';
 
 export const config = {
   runtime: 'nodejs',
